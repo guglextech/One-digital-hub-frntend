@@ -1,0 +1,16 @@
+<section class="modal-wrapper">
+  <div class="modal-header">
+    <h5 class="modal-title">{{ title }}</h5>
+    <button type="button" class="close" (click)="closeModal()">&times;</button>
+  </div>
+  
+  <div class="modal-body">
+    <form [formGroup]="form">
+      <div class="otp-container">
+        <input *ngFor="let controlName of inputControls; let i = index" #otpInput [formControlName]="controlName"
+          type="text" maxlength="1" class="otp-input" (input)="onInput($event, i)" (keydown)="onKeyDown($event, i)">
+      </div>
+      <button type="submit" (click)="submitForm()" class="btn btn-primary" [disabled]="form.invalid">Submit</button>
+    </form>
+  </div>
+</section>

@@ -1,0 +1,137 @@
+<div class="container-scroller">
+  <div class="container-fluid page-body-wrapper full-page-wrapper">
+    <div class="row w-100 m-0">
+      <div
+        class=" full-page-wrapper d-flex align-items-center auth login-bg"
+      >
+       
+          <div class="card mx-auto">
+         <div class="d-flex justify-content-center pt-2">
+          <img src="/assets/images/games-icons/app.jpg" alt="logo" width="95px" class="img-fluid rounded" />
+         </div>
+          <div class="card-body">
+            <div class="row align-items-center text-center">
+              <form [formGroup]="signinForm" (ngSubmit)="onSubmit()">
+                <div class="col-md-12">
+                  <div class="card-body">
+                    <h4 class="font-200 my-4">
+                      {{ "Lotto General Media" | uppercase }}
+                    </h4>
+
+                    <div *ngIf="errorMessage">
+                      <p class="text-danger">{{ this.errorMessage }}</p>
+                    </div>
+
+                    <div class="input-group mb-3">
+                      <label for="email" class="item-start">
+                        Email address
+                      </label>
+                      <div class="w-100">
+                        <input
+                          type="email"
+                          class="form-control"
+                          formControlName="username"
+                          autocomplete="username"
+                          placeholder="Email your email"
+                          aria-label="Username"
+                          aria-describedby="basic-addon1"
+                        />
+                      </div>
+                      <div
+                        *ngIf="
+                          signinForm.get('username')?.invalid &&
+                          signinForm.get('username')?.touched
+                        "
+                        class="text-danger"
+                      >
+                        <div
+                          *ngIf="
+                            signinForm.get('username')?.errors?.['required']
+                          "
+                        >
+                          Email is required.
+                        </div>
+                        <div
+                          *ngIf="signinForm.get('username')?.errors?.['email']"
+                        >
+                          Enter a valid email .
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="form-group input-group mb-4">
+                      <label for="password" class="text-bold"> Password </label>
+                      <div class="w-100 input-group-container">
+                        <input
+                          formControlName="password"
+                          [type]="isPasswordVisible ? 'text' : 'password'"
+                          aria-describedby="basic-addon3"
+                          placeholder="Enter your password"
+                          autocomplete="current-password"
+                          id="password"
+                          class="form-control"
+                        />
+                          <i
+                            (click)="togglePasswordVisibility()"
+                            class="bi"
+                            [ngClass]="{
+                              'bi-eye': !isPasswordVisible,
+                              'bi-eye-slash': isPasswordVisible
+                            }"
+                            style="position: absolute; top: 50%; right: 1rem; transform: translateY(-50%); cursor: pointer;"
+                          ></i>
+                      </div>
+                      <div
+                        *ngIf="
+                          signinForm.get('password')?.invalid && signinForm.get('password')?.touched
+                        "
+                        class="text-danger"
+                      >
+                        <div *ngIf="signinForm.get('password')?.errors?.['required']">
+                          Password is required.
+                        </div>
+                      </div>
+                    </div>
+
+                 
+                    <div class="form-group d-flex align-items-center justify-content-between">
+                      <div class="form-check">
+                        <label class="form-check-label">
+                          <input type="checkbox" class="form-check-input"> Remember me </label>
+                      </div>
+                      <a href="#" class="forgot-pass">Forgot password</a>
+                    </div>
+
+                    <div class="d-grid">
+                      <button
+                        class="btn btn-primary btn-block enter-btn"
+                        [disabled]="isLoading"
+                      >
+                        <ng-container *ngIf="!isLoading"> Log In</ng-container>
+                        <ng-container *ngIf="isLoading">
+                          <span
+                            class="spinner-border spinner-border-sm"
+                            role="status"
+                            aria-hidden="true"
+                          ></span>
+                          Signing in...
+                        </ng-container>
+                      </button>
+                    </div>
+                  </div>
+
+                  <div class="">
+                    <p class="mb-2 text-muted">
+                      Forgot password?
+                      <a href="javascriprt:" class="f-w-400"> Contact administrator</a>
+                    </p>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

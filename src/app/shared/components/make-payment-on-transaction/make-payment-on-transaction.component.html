@@ -1,0 +1,80 @@
+<div class="container mt-2 p-4">
+    <div class="d-flex justify-content-between align-items-center">
+      <div>
+        <h4 class="text-center uppercase">Make payment for Winner</h4>
+      </div>
+  
+      <button type="button" class="btn-close-modal" (click)="modal.dismissAll()">
+        <i class="mdi mdi-close"></i>
+      </button>
+    </div>
+  
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="name"
+          formControlName="name"
+          placeholder="Enter name"
+        />
+        <div
+          *ngIf="form.controls['name'].invalid && form.controls['name'].touched"
+          class="text-danger"
+        >
+          Name is required.
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="mobile"> Player Mobile </label>
+        <input
+          type="number"
+          class="form-control"
+          id="mobile"
+          formControlName="mobile"
+          placeholder="Enter player mobile"
+        />
+        <div
+          *ngIf="
+            form.controls['mobile'].invalid &&
+            form.controls['mobile'].touched
+          "
+          class="text-danger"
+        >
+          Player Mobile
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="maxAmount">Winning Amount</label>
+        
+        <input
+          type="number"
+          class="form-control"
+          id="maxAmount"
+          formControlName="amount"
+          placeholder="Enter  amount"
+        />
+        <div
+          *ngIf="
+            form.controls['amount'].invalid &&
+            form.controls['amount'].touched
+          "
+          class="text-danger"
+        >
+          Credit amount
+        </div>
+        <small class="text-info"> Crediting the player mobile</small>
+      </div>
+  
+  
+      <div class="py-3">
+        <button type="submit" class="btn btn-primary p-2" [disabled]="isFormDisabled() || form.invalid">
+          <i class="mdi mdi-plus-circle"></i> {{ isPaymentMade() ? 'Winner has been paid' : 'Resend Payment' }}
+        </button>
+      </div>
+    </form>
+  </div>
+  

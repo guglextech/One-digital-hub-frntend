@@ -1,0 +1,57 @@
+/* Form group and label styling */
+.form-group {
+  position: relative;
+  margin-bottom: 1.5rem;
+  z-index: 1000;
+}
+
+/* Container for input and icon */
+.input-group-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.form-control {
+  width: 100%;
+  padding-right: 30px; /* Ensure space for the icon */
+  padding-left: 15px;
+  height: 40px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease-in-out;
+}
+
+h4{
+  cursor: pointer;
+}
+
+.form-control:focus {
+  border-color: #3498db; /* Blue color on focus */
+  outline: none;
+}
+
+/* Styling for the eye toggler icon */
+.toggle-password {
+  position: absolute;
+  right: 10px;
+  cursor: pointer;
+  color: #888;
+}
+
+.full-page-wrapper {
+  background-size: cover;
+  background-image: linear-gradient(to bottom right, #010f03, #011806, #010f0b),
+    url("/src/assets/images/auth/Login_bg.jpg") !important;
+  background-blend-mode: overlay;
+  width: 100%;
+}
+
+.card .card-body {
+  max-width: 30rem !important;
+  padding: .5em 1.25rem !important;
+}
+
+img {
+  border-radius: 50% !important;
+  height: 90px;
+}

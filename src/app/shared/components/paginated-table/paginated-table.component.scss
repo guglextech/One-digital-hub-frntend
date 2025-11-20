@@ -1,0 +1,298 @@
+.custom-search {
+  border: none;
+  border-bottom: 1px solid #ccc;
+  padding: 0 0 0 5px;
+  background-color: red;
+}
+
+// Define custom button outline color variants for actions
+$btn-outline-variants: (
+  "view": #007bff,
+  // Blue
+  "approve": #28a745,
+  // Green
+  "reject": #dc3545,
+  // Red
+  "send-sms": #ffc107,
+  // Yellow
+  "send-email": #17a2b8,
+  // Cyan
+  "disable-user": #fd7e14,
+  // Gray
+  "enable-user": #ffc107,
+ 
+  // Purple
+  "download": #e83e8c,
+  // Pink
+  "edit": #fd7e14,
+  // Orange
+  "view-details": #20c997,
+  // Teal
+  "save": #0d6efd,
+  // Primary Blue
+  "confirm": #198754,
+  // Success Green
+  "cancel": #d63384,
+  // Danger Red
+  "pause": #6f42c1,
+  // Purple
+  "complete": #adb5bd,
+  // Light Gray
+  "archive-items": #ca6513,
+  // Dark Gray
+  "undo": #007bff,
+  // Info Blue
+  "set-winning-number": #17a2b8,
+  // Cyan
+  "cancel-subscription": #d63384,
+);
+
+// Loop through each variant and create btn-outline class with custom colors
+@each $action, $color in $btn-outline-variants {
+  .btn-outline-#{$action} {
+    color: $color;
+    border-color: $color;
+
+    &:hover {
+      background-color: $color;
+      color: white;
+    }
+  }
+}
+
+.tb-header {
+  background: #f8f8ff;
+}
+
+.tb-action-header {
+  background: #eeeef0 !important;
+  margin: 5px 0;
+  border-radius: 8px;
+  flex-wrap: wrap;
+
+  h4 {
+    color: rgba(26, 121, 245, 0.829) !important;
+    padding: 6px 0 !important;
+  }
+}
+
+.tb-action-footer {
+  background: #eeeef0 !important;
+  margin: 2px 0;
+  border-radius: 8px;
+  align-items: center !important;
+  padding: 4px 17px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border-left: 2px solid #e3e5e7;
+  border-right: 2px solid #f0f2f3;
+  border-radius: 5px;
+  overflow: hidden;
+  color: black !important;
+}
+
+.table th,
+.table td {
+  // padding: 16px !important;
+  text-align: left;
+  color: #504f4f !important;
+  border-bottom: 1px solid #dee2e6 !important;
+}
+
+.table th {
+  color: black !important;
+  text-transform: uppercase;
+  font-weight: 500;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.table tbody tr {
+  background-color: #ffffff;
+  color: black !important;
+  transition: background-color 0.3s ease-in-out;
+  border-bottom: 1px solid #dee2e6 !important;
+}
+
+.table tbody tr:nth-child(even) {
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #dee2e6 !important;
+}
+
+.table-hover tbody tr:hover {
+  background-color: #f0f3f5;
+  transform: scale(1.01);
+  transition: 0.2s ease-in-out;
+  color: black !important;
+  font-size: 11px !important;
+}
+
+/* Rounded corners only for the first and last row */
+.table tbody tr:first-child td:first-child {
+  border-top-left-radius: 12px;
+}
+.table tbody tr:first-child td:last-child {
+  border-top-right-radius: 12px;
+}
+.table tbody tr:last-child td:first-child {
+  border-bottom-left-radius: 12px;
+}
+.table tbody tr:last-child td:last-child {
+  border-bottom-right-radius: 12px;
+}
+
+.table tr {
+  border-bottom: 1px solid rgb(133, 128, 128) !important;
+  padding: 1.3em !important;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  color: rgb(145, 144, 144);
+  border-radius: 12px;
+}
+
+.table-responsive {
+  border: 1px solid #e7e7e9;
+  border-radius: 7px;
+}
+
+.page-item {
+  a {
+    background-color: #ffffff !important;
+    color: black !important;
+    border-radius: 7px !important;
+  }
+
+  &:hover{
+    cursor: pointer;
+  }
+}
+
+.table-header-info {
+  span {
+    font-size: 16px;
+  }
+}
+
+/* General container */
+.filter-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #f7f1f1;
+  max-width: 650px;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+  border-radius: 15px;
+  margin: 6px 0;
+}
+
+/* Search Bar Layout */
+.search-bar {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  background: #fff;
+  overflow: hidden;
+}
+
+/* Search Input */
+.search-input {
+  flex: 1;
+  padding: 7px 15px;
+  font-size: 13px;
+  border: none;
+  outline: none;
+}
+
+/* Dropdown */
+.search-dropdown {
+  padding: 12px 15px;
+  border: none;
+  font-size: 13px;
+  background: #f8f9fa;
+  cursor: pointer;
+  border-left: 1px solid #ece7e7;
+  outline: none;
+}
+
+/* Date Picker */
+.date-input {
+  flex: 1;
+  padding: 12px 15px;
+  font-size: 13px;
+  border: none;
+  outline: none;
+}
+
+/* Search Button */
+.search-btn {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 7px 20px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: 0.3s;
+  border-radius: 8px;
+}
+
+.search-btn:hover {
+  background: #0056b3;
+}
+
+/* Clear Button */
+.clear-btn {
+  background: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 7px 20px;
+  font-size: 13px;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.clear-btn:hover {
+  background: #cc0000;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .search-bar {
+    flex-direction: column;
+    border-radius: 10px;
+  }
+
+  .search-input,
+  .search-dropdown,
+  .search-btn,
+  .date-input {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
+
+
+.status-dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
+.chip {
+  display: inline-block;
+  background-color: #aff3bf;
+  color: rgb(19, 15, 15);
+  padding: 5px 10px;
+  border-radius: 15px;
+  font-size: 10px;
+  margin: 2px;
+  text-transform: uppercase;
+}

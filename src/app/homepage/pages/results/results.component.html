@@ -1,0 +1,54 @@
+<app-home-hero
+[description]="'Draw details'"
+[title]="'Winners for Draws!'"
+></app-home-hero>
+<section class="#">
+  @if (draw) {
+    <div class="container">
+      <div class="container my-5">
+        <div class="row details-snippet1">
+          <div class="col-md-6">
+            <h2 class="brief-description text-dark"> Draw details</h2>
+            @if(draw){
+              <app-draws-cards [draw]="draw.draws"></app-draws-cards>
+            }
+          </div>
+        </div>
+      </div>
+
+      @if(draw.draws.status === "INACTIVE"){
+        <div class="winners my-5">
+          <h3 class="">Winners for draw ({{draw.draws.drawRef}})  </h3>
+          <div class="container my-3">
+            <div class="table-responsive">
+              <table class="table table-bordered">
+                <thead class="table-light">
+                  <tr>
+                    <th>Ticket</th>
+                    <th>Phone</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let winner of draw.winners; let i = index">
+                    <td>{{ winner.picks }}</td>
+                    <td>{{ winner.phone }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  } @else {
+    <div class="container">
+      <div class="container my-5">
+        <div class="row details-snippet1">
+          <div class="col-md-6">
+            <div class="brief-description">Loading.......</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  }
+</section>

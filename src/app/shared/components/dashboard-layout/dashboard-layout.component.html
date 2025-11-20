@@ -1,0 +1,102 @@
+<div class="container-scroller">
+  <nav class="app-header-nav-dashboard">
+    <div
+      class="d-flex align-items-center item-center justify-content-between w-100"
+    >
+      <div class="d-flex align-items-center">
+        <button class="menu-toggle-btn mr-4" (click)="toggleSidebar()">
+          <i class="mdi mdi-menu text-white"></i>
+        </button>
+        <span class="logo-text">{{ "Lotto General" | uppercase }}  -  {{ (getMatch() | uppercase)  }} </span> 
+      </div>
+
+      <div class="dropdown" ngbDropdown>
+        <div class="nav-item profile" ngbDropdownToggle>
+          <div class="profile-desc d-flex align-items-center">
+            <div class="profile-pic me-2">
+              <h5 class="mb-0 font-weight-normal">
+                {{ userName }} |  <span class="small">{{ userRole | titlecase }}</span>
+                <i class="ms-1 fas fa-caret-down"></i>
+              </h5>
+            </div>
+          </div>
+        </div>
+
+        <div class="dropdown-menu dropdown-menu-end shadow p-2" ngbDropdownMenu>
+          <button class="dropdown-item p-2" (click)="games()">
+            <img [src]="'/assets/icons/feather/key.svg'" width="20" height="20" />
+            Products
+          </button>
+
+          <button class="dropdown-item p-2" (click)="setting()">
+            <img [src]="'/assets/icons/feather/settings.svg'" width="20" height="20" />
+            Settings
+          </button>
+       
+          <button class="dropdown-item p-2" (click)="logout()">
+            <img [src]="'/assets/icons/feather/log-out.svg'" width="20" height="20" />
+            Logout
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Sidebar -->
+  <nav class="sidebar sidebar-offcanvas" [ngClass]="{ open: isSidebarOpen }">
+    <div class="sidebar-brand-wrapper">
+      <a class="sidebar-brand">
+        <span class="logo-text">{{ "Wotiriye Lotteries" | uppercase }}</span>
+      </a>
+      <a class="sidebar-brand brand-logo-mini">
+        <img [src]="sidebarLogoMini" alt="logo" />
+      </a>
+    </div>
+
+    <ul class="nav">
+      <li class="nav-item menu-items" *ngFor="let menuItem of menuItems">
+        <a
+          class="nav-link"
+          [routerLink]="menuItem.link"
+          [ngClass]="{ active: isActive(menuItem.link) }"
+          (click)="menuItem.collapse && toggleCollapse(menuItem.collapseId)"
+        >
+          <span class="menu-icon">
+            <img [src]="menuItem.icon" width="20" height="20" />
+          </span>
+          <span class="menu-title">{{ menuItem.title }}</span>
+          <i *ngIf="menuItem.collapse" class="menu-arrow"></i>
+        </a>
+
+        <!-- Sub-menu for collapsible items -->
+        <div
+          *ngIf="menuItem.collapse"
+          class="collapse"
+          [id]="menuItem.collapseId"
+        >
+          <ul class="nav flex-column sub-menu">
+            <li *ngFor="let subItem of menuItem.subMenu" class="nav-item">
+              <a
+               
+                class="nav-link"
+                [routerLink]="subItem.link"
+                [ngClass]="{ active: isActive(subItem.link) }"
+              >
+                <i class="mdi mdi-chevron-right sub-menu-icon"></i>
+                {{ subItem.title }}
+              </a>
+            </li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- Main Panel -->
+  <div class="main-panel" appViewMode>
+    <div class="content-wrapper">
+      <app-breadcrumb></app-breadcrumb>
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

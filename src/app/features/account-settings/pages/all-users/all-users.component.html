@@ -1,0 +1,17 @@
+<!-- <app-awaiting-numbers></app-awaiting-numbers> -->
+<app-paginated-table
+  [tableData]="tableData"
+  [tableHeaders]="tableHeaders"
+  [pageSize]="pageSize"
+  [hasActions]="hasActions"
+  [getActions]="getActions"
+  [hasSearch]="hasSearch"
+  tableTitle="All Users"
+  tableDescription="List of Users"
+  [hasdownloadOption]="hasdownloadOption"
+  [totalRecords]="totalRecords"
+  (onAction)="handleUserAction($event)"
+  (onSearchChange)="triggerSearchChange($event)"
+  (onPageChange)="triggerPageChange($event)"
+>
+</app-paginated-table>

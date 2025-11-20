@@ -1,0 +1,30 @@
+<app-home-hero [title]="'Winners'" [description]="'Winners for Draws!'">
+</app-home-hero>
+
+<section class="my-4" id="section-winner">
+  <div class="container">
+    <div class="row">
+      <div class="mt-5">
+        @if(profiles.length === 0){
+        <h3 class="text-dark text-center">No winner(s) declared </h3>
+        }
+      </div>
+      @if(profiles.length > 0){
+      <div class="col-md-4 mb-4" *ngFor="let profile of profiles">
+        <div class="card text-center h-100 profile-card">
+          <div class="image-wrapper">
+            <img [src]="profile.photoUrl || 'https://generic-upload.s3.amazonaws.com/nla/wll logo.png'"
+              [alt]="profile.name" class="img-fluid" />
+          </div>
+
+          <div class="card-footer">
+            <h5 class="card-title my-1">{{ profile.name }}</h5>
+            <h4 class="fw-bold text-uppercase">GH₵ {{ profile.amount | number: '1.2-2' }}</h4>
+          </div>
+        </div>
+
+      </div>
+      }
+    </div>
+  </div>
+</section>

@@ -1,0 +1,41 @@
+<div class="ticket-card">
+  <div class="ticket-header">
+    <div class="ticket-overlay"></div>
+    <div class="ticket-title">
+      <h4 class="ticket-draw">Draw #{{ draw.drawRef }}</h4>
+      @if (draw.status === "ACTIVE") {
+        <button class="live-btn blinking-text">Live</button>
+      }
+    </div>
+  </div>
+
+  <div class="ticket-content">
+    @if (draw.correctNumbers) {
+      <div class="winning-numbers">
+        <h5>Winning Numbers</h5>
+        <h1 class="highlight">{{ draw.correctNumbers }}</h1>
+      </div>
+    }
+
+    <div class="draw-name">
+      <p>Draw Name</p>
+      <h4>{{ draw.name }}</h4>
+    </div>
+
+    <div class="draw-details">
+      <div class="detail">
+        <p>Draw Date</p>
+        <h4>{{ draw.createdAt | date: "medium" }}</h4>
+      </div>
+
+      <div class="detail">
+        <p>Closing Time</p>
+        <h4>{{ formatDateToCustomFormat(draw?.closeTime) || "N/A" }}</h4>
+      </div>
+    </div>
+  </div>
+
+  <div class="ticket-footer">
+    <div class="footer-action" (click)="details(draw)">Details</div>
+  </div>
+</div>

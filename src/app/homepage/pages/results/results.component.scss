@@ -1,0 +1,46 @@
+.results-wrapper {
+  margin-top: 5rem;
+  border: 7px solid #e4eaec;
+  color: black !important;
+}
+
+.card {
+  background-color: white !important;
+}
+
+h3 {
+  color: black !important;
+}
+
+.table {
+  margin: 0 auto; /* Centers the table */
+}
+
+.table th,
+.table td {
+  padding: 15px; /* Adds more padding for readability */
+  text-align: center; /* Centers the text in both headers and body */
+}
+
+.table thead {
+  background-color: #f8f9fa; /* Light background for the header */
+}
+
+.table tbody tr:hover {
+  background-color: #f1f1f1; /* Light hover effect on rows */
+  cursor: pointer;
+}
+
+.table th {
+  font-weight: bold; /* Makes headers bold */
+  color: #495057; /* Dark text color */
+}
+
+.table td {
+  font-size: 1.1rem; /* Slightly larger text in body for better readability */
+  color: #343a40; /* Darker text color for body */
+}
+
+.table-bordered {
+  border: 1px solid #dee2e6; /* Subtle border color */
+}

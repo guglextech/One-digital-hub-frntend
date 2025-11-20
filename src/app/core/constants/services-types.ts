@@ -1,0 +1,31 @@
+export enum SERVICE_TYPES {
+  LottoKeys = 'LOTTO KEYS',
+  LottoGuide = 'LOTTO GUIDE',
+  TwoSureLp = 'TWO SURE LP',
+  HotNumbers = 'HOT NUMBERS',
+  SureBanker = 'SURE BANKER',
+  Vip2Sure = 'VIP 2 SURE',
+  MoneyRow = 'MONEY ROW',
+  LottoBible = 'LOTTO BIBLE',
+  LuckyBuck = 'LUCKY BUCK',
+  MrTips = 'MR TIPS',
+  LottoChoice = 'LOTTO CHOICE',
+  BigMoney = 'BIG MONEY',
+  LottoStar = 'LOTTO STAR',
+}
+
+ export const serviceTypeOptions = [
+  { key: 'lottokeys', value: SERVICE_TYPES.LottoKeys },
+  { key: 'lottoguide', value: SERVICE_TYPES.LottoGuide },
+  { key: 'twosurelp', value: SERVICE_TYPES.TwoSureLp },
+  { key: 'hotnumbers', value: SERVICE_TYPES.HotNumbers },
+  { key: 'surebanker', value: SERVICE_TYPES.SureBanker },
+  { key: 'vip2sure', value: SERVICE_TYPES.Vip2Sure },
+  { key: 'moneyrow', value: SERVICE_TYPES.MoneyRow },
+  { key: 'lottobible', value: SERVICE_TYPES.LottoBible },
+  { key: 'luckybuck', value: SERVICE_TYPES.LuckyBuck },
+  { key: 'mrtips', value: SERVICE_TYPES.MrTips },
+  { key: 'lottochoice', value: SERVICE_TYPES.LottoChoice },
+  { key: 'bigmoney', value: SERVICE_TYPES.BigMoney },
+  { key: 'lottostar', value: SERVICE_TYPES.LottoStar },
+];

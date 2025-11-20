@@ -1,0 +1,11 @@
+
+.btn {
+  outline: none;
+  border: none;
+}
+
+.btn-group .btn.active {
+  background-color: #007bff !important;
+  color: #fff;
+  border-color: #0056b3;
+}

@@ -1,0 +1,37 @@
+<app-home-hero
+    [description]="'Play and win big with our exciting game! Join now for a chance to win amazing prizes!'
+    "
+    [title]="'Live Draws'"
+></app-home-hero>
+<div class="main-section">
+  <section class="container" id="section-home">
+    <div *ngIf="isLoading$ | async" class="loading-spinner text-dark">
+      Loading
+    </div>
+
+    <div *ngIf="!(isLoading$ | async)">
+      <div *ngIf="lotteryDraws.length > 0; else noDrawsMessage">
+        <div class="row">
+          <div
+            *ngFor="let draw of lotteryDraws"
+            class="col-md-4 col-sm-6 col-xs-12"
+          >
+            <app-draws-cards [draw]="draw"></app-draws-cards>
+          </div>
+        </div>
+      </div>
+
+      <ng-template #noDrawsMessage>
+        <div class="text-center text-muted py-4">
+          <h1>No Opened Draw</h1>
+          <p>
+            There are no opened draws at the moment. Please check back later.
+          </p>
+          <p>
+            You can also check our past draws
+          </p>
+        </div>
+      </ng-template>
+    </div>
+  </section>
+</div>

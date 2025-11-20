@@ -1,0 +1,34 @@
+<div class="modal-header">
+  <h4 class="modal-title">{{ title }}</h4>
+  <button type="button" class="btn-close-modal" (click)="cancel()">
+    <i class="mdi mdi-close"></i>
+  </button>
+</div>
+<div class="modal-body">
+  <p>{{ message }}</p>
+  <ng-container *ngIf="isObject(details); else simpleDetails">
+    <dl class="row mb-0">
+      <ng-container *ngFor="let key of objectKeys(details)">
+        <dt class="col-md-6 text-end fw-bold">{{ key }}:</dt>
+        <dd class="col-md-6">{{ details[key] }}</dd>
+      </ng-container>
+    </dl>
+  </ng-container>
+
+  <ng-template #simpleDetails>
+    <p class="mb-0">{{ details }}</p>
+  </ng-template>
+</div>
+<div class="modal-footer">
+  <button type="button" (click)="cancel()" class="btn btn-outline-danger btn-icon-text">
+    <i class="mdi mdi-alert-circle-outline btn-icon-prepend"></i> {{ cancelLabel }}
+  </button>
+
+  <button
+    type="button"
+    (click)="confirm()"
+    class="btn btn-outline-success btn-icon-text"
+  >
+    <i class="mdi mdi-check-circle btn-icon-prepend"></i> {{ confirmLabel }}
+  </button>
+</div>

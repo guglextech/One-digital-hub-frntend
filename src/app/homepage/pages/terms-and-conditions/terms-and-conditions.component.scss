@@ -1,0 +1,72 @@
+.container__heading {
+  margin-top: 6rem;
+  color: #333;
+}
+
+.container {
+  background-color: #fff;
+  // padding: 30px;
+  margin-top: 7rem;
+  padding: 0 20px;
+}
+
+.table-container{
+  // overflow: scroll;
+  overflow-x: scroll;
+}
+
+/* Header Styling */
+.container__heading h2 {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.container__heading p {
+  font-size: 16px;
+  color: #7d7d7d;
+}
+
+/* Content Styling */
+.container__content {
+  margin-top: 20px;
+}
+
+.container__content p {
+  font-size: 16px;
+  color: #333;
+  line-height: 1.8;
+  margin-bottom: 15px;
+}
+
+.container__content strong {
+  font-size: 18px;
+  color: #2d2d2d;
+  display: block;
+  margin-bottom: 10px;
+}
+
+/* Lists */
+.container__content ul {
+  list-style-type: none;
+  margin-left: 0;
+}
+
+.container__content li {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 8px;
+  padding-left: 20px;
+  position: relative;
+}
+
+.container__content li::before {
+  content: "•";
+  color: #007bff;
+  font-size: 20px;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+ 

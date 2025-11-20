@@ -1,0 +1,53 @@
+<div class="card">
+    <div class="card-body">
+        <h5>{{ "Update Permission" }}</h5>
+        <div [formGroup]="form" class="forms-sample">
+
+
+            <div class="form-group">
+                <label>Role</label>
+                <select formControlName="role" class="form-control">
+                    <option [value]="'admin'">Admin</option>
+                    <option [value]="'user'" selected>User</option>
+                </select>
+            </div>
+
+
+
+            <div class="form-group">
+                <label class="">Permissions</label>
+                <p class="text-danger">Uncheck option to disable their permissions</p>
+
+                <div class="row">
+                    <!-- Left Column -->
+                    <div class="col-md-6">
+                        <div *ngFor="let match of matchTypes | slice:0:matchTypes.length/2" class="form-check">
+                            <input class="form-check-input" type="checkbox" [formControlName]="match.key"
+                                [id]="match.key" />
+                            <label class="form-check-label" [for]="match.key">
+                                {{ match.value }}
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Right Column -->
+                    <div class="col-md-6">
+                        <div *ngFor="let match of matchTypes | slice:matchTypes.length/2" class="form-check">
+                            <input class="form-check-input" type="checkbox" [formControlName]="match.key"
+                                [id]="match.key" />
+                            <label class="form-check-label" [for]="match.key">
+                                {{ match.value }}
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="d-grid gap-2">
+                <button type="submit" (click)="submitForm()" class="button-primary p-2">
+                    {{ submitButtonText }}
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

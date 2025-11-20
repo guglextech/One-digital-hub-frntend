@@ -1,0 +1,22 @@
+<h3 class="my-3 text-primary">{{ pageTitle }}</h3>
+
+<div *ngIf="data && labels">
+  <div
+    class="card border-primary"
+    style="border-width: 2px; margin-bottom: 10px"
+  >
+    <div class="d-flex align-items-center justify-content-between">
+      <h5 class="card-header rounded-full text-md">Status : {{ status }}</h5>
+    </div>
+    <div class="card-body">
+      <ng-container *ngFor="let key of objectKeys(data)">
+        <p class="card-text">
+          {{ labels[key] }}: <span>{{ formatValue(data[key]) }}</span>
+        </p>
+      </ng-container>
+      <button class="btn btn-block btn-primary d-grid" (click)="details()">
+        View Details
+      </button>
+    </div>
+  </div>
+</div>

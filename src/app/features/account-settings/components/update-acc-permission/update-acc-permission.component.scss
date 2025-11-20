@@ -1,0 +1,52 @@
+.card{
+    background-color: white !important;
+  }
+  
+  .toggle-password {
+    float: right;
+    cursor: pointer;
+    margin-right: 10px;
+    margin-top: -65px;
+    color: black;
+  }
+  
+  .button-primary {
+    background-color: #0090e7;
+    border-color: #0090e7;
+    color: #fff;
+    padding: 0.6em 1.5em;
+    border: none;
+    outline: none;
+    border-radius: 6px;
+  }
+  
+  .form-check {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-radius: 5px;
+  }
+  
+  .form-check-input {
+    width: 15px;
+    height: 15px;
+    border-radius: 9px;
+    cursor: pointer;
+    accent-color: #165dc5;
+  }
+  
+  .form-check-label {
+    font-size: 14px;
+    cursor: pointer;
+    text-transform: capitalize;
+    user-select: none;
+  }
+  
+  .form-group {
+    margin-bottom: 1rem;
+  }
+  
+  .d-flex {
+    display: flex;
+  }
+  

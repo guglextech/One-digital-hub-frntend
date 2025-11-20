@@ -1,0 +1,38 @@
+.container__heading {
+  margin-top: 6rem;
+  color: black;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.table-container {
+  overflow-x: scroll;
+}
+
+/* Header */
+.header-section {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.instructions__description {
+  font-size: 1em;
+  color: #0e0101;
+}
+
+/* Section Styles */
+section {
+  background-color: #ffffff;
+  margin-bottom: 30px;
+  padding: 20px;
+}
+
+/* Style for list items (li) */
+li {
+  margin-bottom: 6px !important;
+  color: black;
+}

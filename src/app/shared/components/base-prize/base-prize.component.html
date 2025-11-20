@@ -1,0 +1,75 @@
+<div>
+  <h3 class="text-primary">Price Setup {{ title }}</h3>
+</div>
+
+<section *ngIf="prizes?.length">
+  <div class="row">
+    <div *ngFor="let prize of prizes" class="col-lg-4 col-md-6 my-2">
+      <div class="card shadow-sm border-0">
+        <div class="card-header">
+          <h4 class="text-uppercase inline-block">
+            {{ prize.serviceType }}
+          </h4>
+        </div>
+
+        <div class="card-body">
+          <div class="small mb-2">
+            <strong>Previous Price:</strong>
+            <span>{{ prize.previousPrice | number: '1.2-2' }}</span>
+          </div>
+
+          <div class="small mb-2">
+            <strong>Current Price:</strong>
+            <span *ngIf="!isEditing">{{ prize.currentPrice | number: '1.2-2' }}</span>
+            <input
+              *ngIf="isEditing"
+              type="number"
+              [(ngModel)]="prize.currentPrice"
+              class="form-control"
+              step="0.01"
+            />
+          </div>
+
+          <div class="small mb-2">
+            <strong>New Price:</strong>
+            <span *ngIf="!isEditing">{{ prize.newPrice | number: '1.2-2' }}</span>
+            <input
+              *ngIf="isEditing"
+              type="number"
+              [(ngModel)]="prize.newPrice"
+              class="form-control"
+              step="0.01"
+            />
+          </div>
+
+          <div class="small">
+            <strong>Description:</strong>
+            <span *ngIf="!isEditing">{{ prize.description }}</span>
+            <textarea
+              *ngIf="isEditing"
+              [(ngModel)]="prize.description"
+              class="form-control"
+              rows="2"
+            ></textarea>
+          </div>
+        </div>
+
+        <div class="card-footer">
+          <p class="small text-muted mb-0">
+            <span>Updated At:</span>
+            {{ date | date: 'medium' }}
+          </p>
+          <button
+            (click)="toggleEdit()"
+            [class.badge-default]="!isEditing"
+            [class.badge-primary]="isEditing"
+            class="btn badge"
+          >
+            {{ isEditing ? "Save" : "Edit Price" }}
+            <i class="mdi mdi-pencil"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

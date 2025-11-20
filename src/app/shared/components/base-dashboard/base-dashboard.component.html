@@ -1,0 +1,12 @@
+<ng-content></ng-content> 
+<div class="row stats-cards-container">
+  <div *ngFor="let card of statsCards" class="col-sm-4 grid-margin">
+    <dashboard-card
+      [background]="card.background"
+      [title]="card.title"
+      [value]="card.getValue(dashboardInfo!)"
+      [textColor]="card.textColor"
+      [format]="card.format">
+    </dashboard-card>
+  </div>
+</div>

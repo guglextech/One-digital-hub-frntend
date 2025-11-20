@@ -1,0 +1,23 @@
+
+<div class="main-section">
+  <app-slider-img></app-slider-img>
+  <div class="container" id="section-home">
+    <div class="d-flex justify-content-center align-items-center">
+      <h1 class="my-4 text-center text-dark text-uppercase"> Ways to Play </h1>
+    </div>
+
+    <div class="row mb-4">
+      <app-match-card
+        class="col-md-4 col-sm-6 col-xs-12 my-2"
+        *ngFor="let card of cards"
+        [image]="card.image"
+        [title]="card.title"
+        [tag]="card.tag"
+        [description]="card.description"
+        (click)="goToGame(card.id)"
+      ></app-match-card>
+    </div>
+  </div>
+</div>
+
+

@@ -1,0 +1,25 @@
+<div class="main-section">
+  <app-home-hero
+    [description]="
+      'Play and win big with our exciting game! Join now for a chance to win amazing prizes!'
+    "
+    [title]="'Welcome to our Game!'"
+  ></app-home-hero> 
+  <div class="container" id="section-home">
+    <div>
+      <h1 class="my-4 text-center text-dark">Past Draws</h1>
+    </div>
+
+    <div class="row my-5">
+      <app-match-card
+        class="col-md-4 col-sm-6 col-xs-12 my-2"
+        *ngFor="let card of cards"
+        [image]="card.image"
+        [title]="card.title"
+        [tag]="card.tag"
+        [description]="card.description"
+        (click)="goToGame(card.id)"
+      ></app-match-card>
+    </div>
+  </div>
+</div>

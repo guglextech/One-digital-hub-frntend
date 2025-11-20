@@ -1,0 +1,67 @@
+<div class="">
+    <div class="card">
+      <div class="card-body">
+        <div class="d-flex justify-content-between align-items-between">
+          <div class="">
+            <h4 class="text-center text-uppercase">Configure SMS Notes</h4>
+          </div>
+          <button
+            type="button"
+            class="btn-close-modal"
+            (click)="modal.dismissAll()"
+          >
+            <i class="mdi mdi-close"></i>
+          </button>
+        </div>
+  
+        <form [formGroup]="smsForm" class="forms-sample">
+          <small class="text-info"> Not Editable </small>
+          <div class="form-group">
+            <label>Choose SMS Template</label>
+            <select
+              formControlName="title"
+              class="form-control"
+              (change)="onTemplateSelect($event)"
+            >
+              <option
+                *ngFor="let template of filteredTemplates"
+                [value]="template.title"
+              >
+                {{ template.title }}
+              </option>
+            </select>
+          </div>
+  
+          <!-- SMS Message -->
+          <div class="form-group">
+            <label> SMS Template </label>
+            <textarea
+              class="form-control"
+              rows="7"
+              cols="40"
+              [disabled]="true"
+              placeholder="Draft SMS"
+              formControlName="message"
+            ></textarea>
+          </div>
+  
+          <button
+            type="submit"
+            class="btn btn-primary p-2 mr-3"
+            [disabled]="smsForm.invalid || loading"
+            (click)="onSubmit()"
+          >
+            Send SMS
+          </button>
+          <button
+            type="button p-2"
+            (click)="modal.dismissAll()"
+            class="btn btn-dark"
+          >
+            Cancel
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+  

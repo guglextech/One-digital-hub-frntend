@@ -1,0 +1,18 @@
+<app-paginated-table
+  [tableData]="tableData"
+  [tableHeaders]="tableHeaders"
+  [pageSize]="pageSize"
+  [hasActions]="hasActions"
+  [getActions]="getActions"
+  [hasSearch]="hasSearch"
+  [loading]="loading"
+  tableTitle="Audit Login"
+  [hasdownloadOption]="hasdownloadOption"
+  tableDescription="Logs of audit login"
+  [totalRecords]="totalRecords"
+  (onAction)="view($event)"
+  (onExport)="exportFile($event)"
+  (onSearchChange)="triggerSearchChange($event)"
+  (onPageChange)="triggerPageChange($event)"
+>
+</app-paginated-table>

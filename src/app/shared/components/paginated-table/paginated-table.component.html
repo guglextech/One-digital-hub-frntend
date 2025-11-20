@@ -1,0 +1,206 @@
+<div class="d-flex tb-action-header justify-content-between p-2 align-items-center">
+  <!-- Title & Description -->
+  <div class="table-header-info">  
+    <div *ngIf="tableTitle === 'Winners (Any Order)' || tableTitle === 'Winners (Combo)' || tableTitle === 'Winners (Exact Order)'; else defaultTemplate">
+      <span class="text-primary d-block">{{ tableTitle }} {{ totalRecords }}</span>
+      <p class="d-inline text-sm">{{ tableDescription }}</p>
+    </div>
+    
+    <ng-template #defaultTemplate>
+      <span class="text-primary d-block">{{ tableTitle }}</span>
+      <p class="d-inline text-sm">{{ tableDescription }}</p>
+    </ng-template>
+  </div>
+
+ 
+  <div class="table-header-actions d-flex mx-3" *ngIf="hasdownloadOption()">
+    <button class="btn btn-outline-primary btn-sm d-flex align-items-center mx-3" (click)="toggleFilterSection()">
+      <i class="mdi mdi-filter-outline me-1"></i> Filter
+    </button>
+  
+    <div *ngIf="hasdownloadOption()">
+      <button class="btn btn-outline-primary btn-sm d-flex align-items-center" (click)="newExportFile('csv')">
+        <i class="mdi mdi-file-delimited me-1"></i> Export Records
+      </button>
+    </div>
+  </div>
+</div>
+
+ 
+
+<!-- Search & Filter Section -->
+<div *ngIf="showFilters" class="filter-container">
+  <div class="search-bar">
+    <input
+      type="text"
+      class="search-input"
+      placeholder="Search by Mobile..."
+      *ngIf="filterType !== 'date'"
+      [(ngModel)]="searchQuery"
+    />
+
+    <select class="search-dropdown" [(ngModel)]="filterType">
+      <option value="mobile">Mobile</option>
+      <!-- <option value="date">Specific Date</option> -->
+    </select>
+
+    <input *ngIf="filterType === 'date'" class="date-input" type="date" [(ngModel)]="searchQuery" />
+
+    <button class="search-btn mx-2" (click)="handleSearch(searchQuery)">
+      <i class="fa fa-search"></i> Search
+    </button>
+
+    <button class="clear-btn" *ngIf="searchQuery" (click)="clearFilters()">
+      <i class="mdi mdi-close"></i> Clear
+    </button>
+  </div>
+</div>
+
+
+
+
+
+<section class="table-wrapper">
+  <div class="table-responsive">
+    <div *ngIf="loading" class="text-center py-5">
+      <div class="spinner-border" role="status"></div>
+    </div>
+
+    <table *ngIf="!loading" class="table table-hover table-striped">
+      <thead class="text-white fw-bold tb-header">
+        <tr>
+          <th
+            class="text-captalize fw-bold text-white"
+            *ngFor="let header of tableHeaders"
+          >
+            {{ header | titlecase }}
+          </th>
+          <th *ngIf="hasActions()">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngIf="!tableData.length">
+          <td
+            [attr.colspan]="tableHeaders.length + (hasActions() ? 2 : 1)"
+            class="text-center text-white"
+          >
+            No data or records found.
+          </td>
+        </tr>
+
+        <tr *ngFor="let row of tableData; let i = index">
+          <td class="text-white" *ngFor="let header of tableHeaders">
+            <ng-container [ngSwitch]="header">
+              
+              <!-- Status Columns with Colored Dot and Text -->
+              <ng-container *ngSwitchCase="DASHBOARD_HEADER_NAME.STATUS">
+                <span class="status-container" [ngStyle]="{ 'color': formatStatus(row[header]).color }">
+                  <span class="status-dot" [ngStyle]="{ 'background-color': formatStatus(row[header]).color }"></span>
+                  {{ formatStatus(row[header]).text }}
+                </span>
+              </ng-container>
+          
+              <ng-container *ngSwitchCase="DASHBOARD_HEADER_NAME.CREDIT_STATUS">
+                <span class="status-container" [ngStyle]="{ 'color': formatStatus(row[header]).color }">
+                  <span class="status-dot" [ngStyle]="{ 'background-color': formatStatus(row[header]).color }"></span>
+                  {{ formatStatus(row[header]).text }}
+                </span>
+              </ng-container>
+          
+              <ng-container *ngSwitchCase="DASHBOARD_HEADER_NAME.DEBIT_STATUS">
+                <span class="status-container" [ngStyle]="{ 'color': formatStatus(row[header]).color }">
+                  <span class="status-dot" [ngStyle]="{ 'background-color': formatStatus(row[header]).color }"></span>
+                  {{ formatStatus(row[header]).text }}
+                </span>
+              </ng-container>
+          
+              <!-- Draws Column with Chips -->
+              <ng-container *ngSwitchCase="DASHBOARD_HEADER_NAME.DRAWS">
+                <span *ngFor="let draw of row['Draws']" class="chip">{{ draw }}</span>
+              </ng-container>
+
+ 
+
+              <!-- <ng-container *ngSwitchCase="DASHBOARD_HEADER_NAME.PERMISSIONS">
+                <ng-container *ngIf="row['Permissions']?.length; else noPermissions">
+                  <span
+                    *ngFor="let permission of row['Permissions']"
+                    class="chip flex-wrap"
+                  >
+                    {{ permission }}
+                  </span>
+                </ng-container>
+                <ng-template #noPermissions>
+                  <span class="text-muted">None</span>
+                </ng-template>
+              </ng-container> -->
+              
+
+              <ng-container *ngSwitchDefault>
+                <span>{{ row[header] }}</span>
+              </ng-container>
+          
+            </ng-container>
+          </td>
+          
+
+          <td *ngIf="hasActions()">
+            <button
+              *ngFor="let action of getActions()"
+              class="btn btn-sm mx-2"
+              (click)="handleRowAction(action, row)"
+              type="button"
+              [ngClass]="getActionClass(action)"
+            >
+              <i [ngClass]="getActionIcon(action)"></i>
+              {{ action }}
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="d-flex justify-content-between tb-action-footer">
+    <div>
+      <p>Total Records: {{ totalRecords }}</p>
+    </div>
+
+    <div>
+      <label for="pageSize" class="me-2 mx-2">Records per page:</label>
+      <select
+        id="pageSize"
+        class="form-select w-auto btn btn-sm"
+        [(ngModel)]="pageSize"
+        (change)="changePageSize(pageSize)"
+      >
+        <option *ngFor="let size of pageSizeOptions" [value]="size">
+          {{ size }}
+        </option>
+      </select>
+    </div>
+
+    <nav aria-label="Page navigation" *ngIf="!loading && tableData.length">
+      <ul class="pagination justify-content-end mb-0 my-2">
+        <li class="page-item" [ngClass]="{ disabled: currentPage === 1 }">
+          <a class="page-link" (click)="changePage(currentPage - 1)">Prev</a>
+        </li>
+
+        <li
+          *ngFor="let page of getPageNumbers()"
+          class="page-item"
+          [ngClass]="{ active: page === currentPage }"
+        >
+          <a class="page-link" (click)="changePage(page)">{{ page }}</a>
+        </li>
+
+        <li
+          class="page-item"
+          [ngClass]="{ disabled: currentPage >= totalPages() }"
+        >
+          <a class="page-link" (click)="changePage(currentPage + 1)">Next</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</section>

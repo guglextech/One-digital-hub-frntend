@@ -1,0 +1,26 @@
+<section class="artists-section" id="section_3">
+  <div>
+    <div class="card rounded-circle">
+      <div class="top-right">
+        <div class="tags-list mb-2">
+          <span [ngStyle]="{'background-color': '#FFA500', 'text-transform' : 'uppercase'}">
+            {{ tag }}
+          </span>
+        </div>
+      </div>
+      <div class="image-container">
+        <a><img [src]="image" alt="" class="card-img-top grayscale-overlay">
+          <ng-template #noImage>
+            <img [src]="image" alt="" class="card-img-top grayscale-overlay">
+          </ng-template>
+        </a>
+        <div class="image-overlay text-over text-center d-flex justify-content-center align-items-center text-uppercase">
+          <div>
+            <h2 class="font-normal">{{ title }}</h2>
+            <span class="thumbnail-date-month">{{ "Play & Win" }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

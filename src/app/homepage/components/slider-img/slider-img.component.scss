@@ -1,0 +1,133 @@
+/* General styling */
+
+img{
+  height: 500px;
+  width: 100%;
+  border-radius: 15px;
+}
+
+
+.slider-container {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
+    margin-top: 6rem;
+    border-radius: 15px;  
+    border: 1px solid rgb(218, 216, 216);
+  }
+  
+  .slider {
+    display: flex;
+    transition: transform 0.5s ease;
+  }
+  
+  .slide {
+    min-width: 100%;
+    box-sizing: border-box;
+    position: relative;
+  }
+  
+  .slide-image {
+    width: 100%;
+    // height: auto;
+    display: block;
+    background-repeat: no-repeat;
+    // object-fit: contain;
+    border-radius: 15px;  
+  }
+  
+  .caption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 60px !important;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  /* Navigation buttons */
+  button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(71, 70, 70, 0.5);
+    color: white;
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+    font-size: 24px;
+    z-index: 10;
+    border-radius: 10px;
+  }
+  
+  .prev {
+    left: 20px;
+  }
+  
+  .next {
+    right: 20px;
+  }
+  
+  button:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+  
+  /* Active slide transition */
+  .slide.active {
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+  }
+  
+  /* Mobile styling */
+  @media (max-width: 768px) {
+    .caption {
+      font-size: 18px; 
+      width: 90%;  
+    }
+  
+    button {
+      padding: 10px;
+      font-size: 18px;  
+    }
+  
+    .slide-image {
+      border-radius: 15px;  
+    }
+  }
+  
+  /* Tablet styling (768px to 1024px) */
+  @media (max-width: 1024px) and (min-width: 769px) {
+     h5 {
+      font-size: 40px;  
+    }
+  
+    button {
+      padding: 12px;
+      font-size: 20px; 
+    }
+  
+    .slide-image {
+      border-radius: 15px;  
+    }
+  }
+  
+  /* Large screen styling (above 1024px) */
+  @media (min-width: 1025px) {
+    h5 {
+      font-size: 36px;  
+    }
+  
+    button {
+      padding: 7px;
+      font-size: 24px; 
+    }
+  
+    .slide-image {
+      border-radius: 15px;  
+    }
+  }
+  

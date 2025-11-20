@@ -1,0 +1,14 @@
+/node_modules
+/dist
+/build
+/coverage
+/dist-server
+/dist-ssr
+/environments
+/src/assets/scss/vendor
+/src/assets/scss/vendor.bundle.base.css
+/src/assets/scss/vendor.bundle.base.css.map
+/src/assets/scss/vendor.bundle.base.css.map
+
+node_modules/
+jspm_packages/

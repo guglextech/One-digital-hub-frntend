@@ -1,0 +1,76 @@
+<div class="card">
+  <div class="card-header">
+    <h6 class="text-uppercase fw-bold">
+      <i class="feather icon-info"></i>
+      Main Draw Details
+    </h6>
+  </div>
+
+  <div class="card-body">
+    <div class="d-flex justify-content-between flex-wrap">
+      <p class="card-text flex-item">
+        <span class="text-primary fw-bold"> Date : </span>
+        {{ createdAt | date: "medium" }}
+      </p>
+      <p class="card-text flex-item">
+        <span class="text-primary fw-bold"> Total Players : </span>
+        {{ totalPlayers }}
+      </p>
+      <p class="card-text flex-item">
+        <span class="text-primary fw-bold"> Total Tickets : </span>
+        {{ totalPicks }}
+      </p>
+    </div>
+
+    <div class="d-flex justify-content-between flex-wrap">
+      <p class="card-text flex-item">
+        <span class="text-primary fw-bold"> Minimum Amount : </span>
+        {{ minAmount }}
+      </p>
+      <p class="card-text flex-item">
+        <span class="text-primary fw-bold"> Maximum Amount : </span>
+        {{ maxAmount }}
+      </p>
+      <p class="card-text flex-item">
+        <span class="text-primary fw-bold"> Created By : </span>
+        {{ createdBy }} - <a>{{ email }}</a>
+      </p>
+    </div>
+  </div>
+</div>
+
+
+<div class="my-3"></div>
+
+<div class="card">
+  <div class="card-header">
+    <h6 class="text-uppercase fw-bold">
+      <i class="feather icon-info"></i>
+      Prize Distribution
+    </h6>
+  </div>
+
+  <div class="card-body">
+    <div class="d-flex justify-content-between flex-wrap">
+      <p class="card-text flex-item">
+        <span class="text-primary fw-bold"> Total Sales : </span>
+        {{ draw.totalAmount || "N/A" }}
+      </p>
+      <p class="card-text flex-item">
+        <span class="text-primary fw-bold"> Total Winning Amount : </span>
+        {{ draw?.totalWinnersAmount || "N/A" }}
+      </p>
+      <p class="card-text flex-item">
+        <span class="text-primary fw-bold"> Pending payments: </span>
+        {{ draw.pendingPayoutAmount || "N/A" }}
+      </p>
+    </div>
+
+    <div class="d-flex justify-content-between flex-wrap">
+      <p class="card-text flex-item">
+        <span class="text-primary fw-bold"> Amount paid : </span>
+        {{ draw.totalPayoutAmount || "N/A" }}
+      </p>
+    </div>
+  </div>
+</div>

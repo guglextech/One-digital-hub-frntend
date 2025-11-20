@@ -1,0 +1,13 @@
+<div class="form-group">
+    <label>{{ label }}</label>
+    <input
+      type="text"
+      [formControlName]="controlName"
+      class="form-control"
+      [placeholder]="placeholder"
+      [class.is-invalid]="isInvalid"
+    />
+    <div *ngIf="errorMessage" class="invalid-feedback">
+      {{ errorMessage }}
+    </div>
+  </div>

@@ -1,0 +1,24 @@
+<div class="card draw-card" style="border-width: 2px; margin-bottom: 10px">
+    <div class="card-header ">
+      <h5 class="text-md">Draw Reference: {{ draw.drawRef }}</h5>
+      <div class="status-badge" [ngClass]="{ 'badge-primary': draw.status === STATUS.ACTIVE, 'badge-secondary': draw.status === STATUS.INACTIVE }">
+        {{ draw.status }}
+      </div>
+    </div>
+  
+    <div class="card-body">
+      <h5 class="card-title">Draw Name : {{ draw.name }}</h5>
+      <div class="card-details">
+        <p>Draw Date: {{ draw.drawDate | date: 'medium' }}</p>
+        <p>Min Stake: {{ draw.minAmount | currency: 'GHS' }}</p>
+        <p>Max Stake: {{ draw.maxAmount | currency: 'GHS' }}</p>
+        <p>Closing Time: {{ formattedCloseTime }}</p>
+      </div>
+  
+      <button 
+        class="btn btn-primary w-100"
+        (click)="handleViewDetails()">
+        View Draw
+      </button>
+    </div>
+  </div>

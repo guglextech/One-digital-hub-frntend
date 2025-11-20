@@ -1,0 +1,25 @@
+<section class="navbar">
+  <div class="navbar-container container">
+    <div class="logo-container">
+      <img src="/assets/images/games-icons/navlogo.jpg" width="50px">
+    </div>
+
+    <input type="checkbox" (change)="toggleSidebar()" [checked]="isSidebarOpen" />
+    <div class="hamburger-lines">
+      <span class="line line1"></span>
+      <span class="line line2"></span>
+      <span class="line line3"></span>
+    </div>
+    <ul class="menu-items" [ngClass]="{ open: isSidebarOpen }">
+      <li><a routerLink="/live" (click)="closeSidebar()">Home</a></li>
+      <li><a routerLink="/past-draws" (click)="closeSidebar()">Past Draws</a></li>
+      <li><a routerLink="/how-to-play" (click)="closeSidebar()">How to Play</a></li>
+      <li><a routerLink="/winners" (click)="closeSidebar()"> Winners </a></li>
+      <li><a routerLink="/video-stream" (click)="closeSidebar()">Watch Drawings </a></li>
+      <li><a routerLink="/terms-and-conditions" (click)="closeSidebar()">Terms and Conditions</a></li>
+      <li><a routerLink="/contacts" (click)="closeSidebar()">Contact</a></li>
+    </ul>
+
+  </div>
+</section>
+
