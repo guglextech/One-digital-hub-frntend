@@ -28,7 +28,7 @@ export class PaymentHistoryComponent extends PaginatedTableComponent {
 
     this.bigMoneySvc
       .paymentHistory(
-        SERVICE_TYPES.BigMoney,
+        SERVICE_TYPES.Sports,
         "",
         this.currentPage,
         this.pageSize

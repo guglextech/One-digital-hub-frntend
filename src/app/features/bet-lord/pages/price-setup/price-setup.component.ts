@@ -40,12 +40,12 @@ export class PriceSetupComponent extends BasePrizeComponent implements OnInit {
   }
 
   loadPriceSetup() {
-    this.bigMoneySvc.getPriceInfo(SERVICE_TYPES.BigMoney).subscribe({
+    this.bigMoneySvc.getPriceInfo(SERVICE_TYPES.Sports).subscribe({
       next: ({ result }) => {
         this.prizes = [
           {
             ...result,
-            serviceType: SERVICE_TYPES?.BigMoney,
+            serviceType: SERVICE_TYPES?.Sports,
             previousPrice: +result?.previousPrice,
             currentPrice: +result?.currentPrice,
             newPrice: +result?.currentPrice,

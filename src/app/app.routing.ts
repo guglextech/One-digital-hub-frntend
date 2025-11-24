@@ -19,6 +19,10 @@ export const appRoutes: Routes = [
     component: GamesBoardComponent
   },
   {
+    path: "bet-lord",
+    loadChildren: () => import("./features/bet-lord/big-money.routing").then((m) => m.BetLordInRoutes),
+  },
+  {
     path: "settings",
     canActivate: [RoleGuard],
     data: { roles: [Role.Admin, Role.User] },

@@ -9,7 +9,7 @@ import { InactiveSubscribersComponent } from "./pages/subscribers/inactive-subsc
 import { BigMoneyComponent } from "./big-money.component";
 import { PaymentHistoryComponent } from "./pages/payment-history/payment-history.component";
 
-export const BigMoneyInRoutes: Routes = [
+export const BetLordInRoutes: Routes = [
   {
     path: "",
     component: BigMoneyComponent,

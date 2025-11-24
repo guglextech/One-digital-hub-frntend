@@ -1,9 +1,9 @@
 import { Injectable } from "@angular/core";
-import { HotNumbersService } from "../../hot-numbers/services/hot-numbers.service";
+import { GenericService } from "src/app/core/services/generic.service";
 
 @Injectable({
   providedIn: "root",
 })
-export class BigMoneyService extends HotNumbersService{
+export class BigMoneyService extends GenericService {
    
 }
