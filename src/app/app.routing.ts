@@ -3,16 +3,11 @@ import { RouterModule, Routes } from "@angular/router";
 import { AuthGuard } from "./core/guards/auth.guard";
 import { RoleGuard } from "./core/guards/role.guard";
 import { Role } from "./core/models/Roles";
-// import { Page404Component } from "./features/page-404/page-404.component";
 import { GamesBoardComponent } from "./features/features.component";
 import { Page404Component } from "./page-404/page-404.component";
 import { PRODUCTS_NAME } from "./core/constants/product-list";
 
 export const appRoutes: Routes = [
-  // {
-  //   path: "",
-  //   loadChildren : () => import("./homepage/home.routes").then((m) => m.HomepageInRoutes),
-  // },
   {
     path: "auth",
     loadChildren: () => import("./auth/auth.module").then((m) => m.AuthRoutingModule),
