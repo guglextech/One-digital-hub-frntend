@@ -1,0 +1,138 @@
+<div class="container">
+  <button class="back-btn" (click)="goBack()" type="button">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M19 12H5M12 19l-7-7 7-7"/>
+    </svg>
+    Back
+  </button>
+
+  <div class="header">
+    <h1>Cancel Subscription</h1>
+    <p>Find invoice ID or cancel subscription</p>
+  </div>
+
+  <!-- Query Section -->
+  <div class="section">
+    <h2>Find Invoice ID</h2>
+    <form [formGroup]="queryForm" (ngSubmit)="onQuery()">
+      <div class="field">
+        <label>Mobile Number <span class="required">*</span></label>
+        <input
+          type="text"
+          formControlName="queryPhone"
+          placeholder="233542514003"
+          [class.error]="queryPhone?.invalid && queryPhone?.touched"
+        />
+        @if (queryPhone?.invalid && queryPhone?.touched) {
+          <span class="error">Mobile number is required</span>
+        }
+      </div>
+
+      <div class="field">
+        <label>Service Type <span class="required">*</span></label>
+        <select
+          formControlName="queryServiceType"
+          [class.error]="queryServiceType?.invalid && queryServiceType?.touched"
+        >
+          <option value="" disabled>Select service</option>
+          @for (option of serviceTypeOptions; track option.key) {
+            <option [value]="option.value">{{ option.value }}</option>
+          }
+        </select>
+        @if (queryServiceType?.invalid && queryServiceType?.touched) {
+          <span class="error">Please select a service</span>
+        }
+      </div>
+
+      <button type="submit" class="btn btn-primary" [disabled]="isQuerying || queryForm.invalid">
+        @if (isQuerying) {
+          <span class="spinner"></span> Searching...
+        } @else {
+          Find Invoice ID
+        }
+      </button>
+    </form>
+
+    <!-- Results -->
+    @if (queryResults.length > 0) {
+      <div class="results">
+        <div class="result-item">
+          <label>Invoice ID:</label>
+          <div class="invoice-wrapper">
+            <code>{{ queryResults[0]['Recurring Invoice'] || queryResults[0].recurringInvoiceId || 'N/A' }}</code>
+            <button type="button" class="btn btn-success" (click)="copyInvoiceId(queryResults[0]['Recurring Invoice'] || queryResults[0].recurringInvoiceId || '')">
+              Copy
+            </button>
+          </div>
+        </div>
+      </div>
+    }
+
+    <!-- Full Response -->
+    @if (fullApiResponse) {
+      <div class="api-response">
+        <div class="response-header">
+          <h3>Full Response</h3>
+          <button type="button" class="btn btn-small btn-success" (click)="copyFullResponse()">Copy JSON</button>
+        </div>
+        <pre>{{ formattedResponse }}</pre>
+      </div>
+    }
+  </div>
+
+  <!-- Cancel Form -->
+  <div class="section">
+    <h2>Cancel Subscription</h2>
+    <form [formGroup]="cancelForm" (ngSubmit)="onSubmit()">
+      <div class="field">
+        <label>Mobile Number  <span class="required">*</span></label>
+        <input
+          type="text"
+          formControlName="phone"
+          placeholder="(233-XXXX-XXXX)"
+          [class.error]="phone?.invalid && phone?.touched"
+        />
+        @if (phone?.invalid && phone?.touched) {
+          <span class="error">Mobile number is required</span>
+        }
+      </div>
+
+      <div class="field">
+        <label>Service Type <span class="required">*</span></label>
+        <select
+          formControlName="serviceType"
+          [class.error]="serviceType?.invalid && serviceType?.touched"
+        >
+          <option value="" disabled>Select service</option>
+          @for (option of serviceTypeOptions; track option.key) {
+            <option [value]="option.value">{{ option.value }}</option>
+          }
+        </select>
+        @if (serviceType?.invalid && serviceType?.touched) {
+          <span class="error">Please select a service</span>
+        }
+      </div>
+
+      <div class="field">
+        <label>Recurring Invoice ID <span class="required">*</span></label>
+        <input
+          type="text"
+          formControlName="recurringInvoiceId"
+          placeholder="612871262e2e4de6adc86c2725ce7001"
+          [class.error]="recurringInvoiceId?.invalid && recurringInvoiceId?.touched"
+        />
+        @if (recurringInvoiceId?.invalid && recurringInvoiceId?.touched) {
+          <span class="error">Invoice ID is required</span>
+        }
+      </div>
+
+      <button type="submit" class="btn btn-danger" [disabled]="isLoading || cancelForm.invalid">
+        @if (isLoading) {
+          <span class="spinner"></span> Cancelling...
+        } @else {
+          Cancel Subscription
+        }
+      </button>
+    </form>
+  </div>
+</div>

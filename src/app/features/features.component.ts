@@ -84,5 +84,7 @@ export class GamesBoardComponent implements OnInit {
     this.router.navigate(["/settings/profile"]);
   }
 
-  
+  gotoCancelSubscription() {
+    this.router.navigate(["/cancel-subscription"]);
+  }
 }

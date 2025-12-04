@@ -6,6 +6,7 @@ import { Role } from "./core/models/Roles";
 import { GamesBoardComponent } from "./features/features.component";
 import { Page404Component } from "./page-404/page-404.component";
 import { PRODUCTS_NAME } from "./core/constants/product-list";
+import { CancelSubscriptionsComponent } from "./features/cancel-subscriptions/cancel-subscriptions.component";
 
 export const appRoutes: Routes = [
   {
@@ -37,6 +38,10 @@ export const appRoutes: Routes = [
   {
     path: "motivation-lord",
     loadChildren: () => import("./features/motivation-lord/motivation-lord.routing").then((m) => m.MotivationLordRoutes),
+  },
+  {
+    path: "cancel-subscription",
+    component: CancelSubscriptionsComponent,
   },
   {
     path: "settings",
