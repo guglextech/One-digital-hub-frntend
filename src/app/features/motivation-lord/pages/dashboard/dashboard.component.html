@@ -1,0 +1,35 @@
+@if (dashboardInfo) {
+    <section class="dashboard-header">
+      <div class="row">
+        <div class="col-12 grid-margin stretch-card">
+          <div class="card">
+            <div class="card-body py-0 px-0 px-sm-3">
+              <div class="row align-items-center">
+                <div class="col-5 col-sm-7 col-xl-8 p-2">
+                  <h4 class="mb-1 mb-sm-0 text-primary">Dashboard Insight</h4>
+                  <p class="mb-0 font-weight-normal d-none d-sm-block">
+                    Motivation
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+    <div class="row stats-cards-container">
+      @for (card of statsCards; track card.title) {
+        <div class="col-sm-4 grid-margin">
+          <dashboard-card
+            [background]="card.background"
+            [title]="card.title"
+            [value]="card.getValue(dashboardInfo)"
+            [textColor]="card.textColor"
+            [format]="card.format">
+          </dashboard-card>
+        </div>
+      }
+    </div>
+  }
+

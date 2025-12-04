@@ -1,0 +1,18 @@
+<app-paginated-table
+  [tableData]="tableData"
+  [tableHeaders]="tableHeaders"
+  [pageSize]="pageSize"
+  [hasActions]="hasActions"
+  [getActions]="getActions"
+  [hasSearch]="hasSearch"
+  tableTitle="Active Subscribers"
+  [loading]="loading"
+  tableDescription="List of Active Subscribers"
+  [totalRecords]="totalRecords"
+  (onSearchChange)="triggerSearchChange($event)"
+  (onAction)="action($event)"
+  (onExport)="exportFiles($event)"
+  (onPageChange)="triggerPageChange($event)"
+>
+</app-paginated-table>
+

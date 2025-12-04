@@ -23,6 +23,22 @@ export const appRoutes: Routes = [
     loadChildren: () => import("./features/bet-lord/big-money.routing").then((m) => m.BetLordInRoutes),
   },
   {
+    path: "love-relationships-lord",
+    loadChildren: () => import("./features/love-relationships-lord/love-relationships-lord.routing").then((m) => m.LoveRelationshipsLordRoutes),
+  },
+  {
+    path: "jobs-lord",
+    loadChildren: () => import("./features/jobs-lord/jobs-lord.routing").then((m) => m.JobsLordRoutes),
+  },
+  {
+    path: "finance-lord",
+    loadChildren: () => import("./features/finance-lord/finance-lord.routing").then((m) => m.FinanceLordRoutes),
+  },
+  {
+    path: "motivation-lord",
+    loadChildren: () => import("./features/motivation-lord/motivation-lord.routing").then((m) => m.MotivationLordRoutes),
+  },
+  {
     path: "settings",
     canActivate: [RoleGuard],
     data: { roles: [Role.Admin, Role.User] },

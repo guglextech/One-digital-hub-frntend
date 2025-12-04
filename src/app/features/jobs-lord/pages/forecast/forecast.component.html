@@ -1,0 +1,30 @@
+<div class="d-flex justify-content-end my-2">
+  <button (click)="createForecast()" class="btn btn-info rounded-pill mr-3">
+   <i class="bi bi-plus-circle-fill"></i>
+    Create Forecast
+  </button>
+
+  <button (click)="broadcastSMS()" class="btn btn-danger rounded-pill">
+    <i class="bi bi-megaphone"></i>
+    Broadcast SMS
+  </button>
+</div>
+
+<app-paginated-table
+  [tableData]="tableData"
+  [tableHeaders]="tableHeaders"
+  [pageSize]="pageSize"
+  [hasActions]="hasActions"
+  [getActions]="getActions"
+  [hasSearch]="hasSearch"
+  tableTitle="Forecast Message"
+  [loading]="loading"
+  tableDescription="List of Forecast Message"
+  [totalRecords]="totalRecords"
+  (onSearchChange)="triggerSearchChange($event)"
+  (onAction)="view($event)"
+  (onExport)="exportFiles($event)"
+  (onPageChange)="triggerPageChange($event)"
+>
+</app-paginated-table>
+

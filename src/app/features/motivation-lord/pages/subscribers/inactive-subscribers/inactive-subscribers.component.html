@@ -1,0 +1,18 @@
+<app-paginated-table
+  [tableData]="tableData"
+  [tableHeaders]="tableHeaders"
+  [pageSize]="pageSize"
+  [hasActions]="hasActions"
+  [getActions]="getActions"
+  [hasSearch]="hasSearch"
+  tableTitle="Inactive Subscribers"
+  [loading]="loading"
+  tableDescription="List of inactive Subscribers"
+  [totalRecords]="totalRecords"
+  (onSearchChange)="triggerSearchChange($event)"
+  (onAction)="view($event)"
+  (onExport)="exportFiles($event)"
+  (onPageChange)="triggerPageChange($event)"
+>
+</app-paginated-table>
+
