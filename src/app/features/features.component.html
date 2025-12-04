@@ -2,15 +2,17 @@
   <header class="hero">
     <h1 class="hero__title">Forecast Hub</h1>
 
-    <button class="ghost-btn" (click)="gotoSettings()">
-      <i class="bi bi-gear"></i>
-      Account settings
-    </button>
+    <div class="hero__actions">
+      <button class="ghost-btn" (click)="gotoSettings()">
+        <i class="bi bi-gear"></i>
+        Account settings
+      </button>
 
-    <button class="ghost-btn" (click)="gotoCancelSubscription()">
-      <i class="bi bi-x-circle"></i>
-      Cancel Subscription
-    </button>
+      <button class="ghost-btn" (click)="gotoCancelSubscription()">
+        <i class="bi bi-x-circle"></i>
+        Cancel Subscription
+      </button>
+    </div>
   </header>
 
   <div class="content">

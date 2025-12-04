@@ -12,7 +12,7 @@ import { environment as env } from "src/environments/environment.prod";
 })
 export class CancelSubscriptionService {
   http = inject(HttpClient);
-  private BASE_URL = `${env.BASE_URL}/lgm`;
+  private BASE_URL = `${env.BASE_URL}/forecast`;
 
   private getHeaders(): HttpHeaders {
     const token = localStorage.getItem("token");
