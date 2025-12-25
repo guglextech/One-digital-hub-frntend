@@ -1,13 +1,11 @@
 <div class="features-shell">
   <header class="hero">
     <h1 class="hero__title">Forecast Hub</h1>
-
     <div class="hero__actions">
       <button class="ghost-btn" (click)="gotoSettings()">
         <i class="bi bi-gear"></i>
-        Account settings
+        Settings
       </button>
-
       <button class="ghost-btn" (click)="gotoCancelSubscription()">
         <i class="bi bi-x-circle"></i>
         Cancel Subscription
@@ -16,44 +14,42 @@
   </header>
 
   <div class="content">
-    @if (showOldGames) {
-      <section class="panel">
-        <div class="panel__header">
-          <div>
-            <h2>Available products</h2>
-            <p class="panel__hint">Tap a card to set the active match.</p>
-          </div>
-          <span class="chip">{{ oldGames.length }} listed</span>
+    @if (showOldGames && productCategories.length > 0) {
+      <section class="products-section">
+        <div class="section-header">
+          <h2>Available Products</h2>
+          <span class="chip">{{ oldGames.length }} products</span>
         </div>
 
-        <div class="game-grid">
-          @for (game of oldGames; track game.gameId) {
-            <article class="game-card" (click)="setMatch(game)">
-              <div class="game-card__image">
-                <img
-                  [src]="game.gameImage"
-                  [alt]="game.gameName"
-                  loading="lazy"
-                />
-                <span class="pill">{{ game.tag }}</span>
+        <div class="categories">
+          @for (category of productCategories; track category.title) {
+            <div class="category-group">
+              <h3 class="category-title">{{ category.title }}</h3>
+              <div class="game-grid">
+                @for (game of category.products; track game.gameId) {
+                  <article class="game-card" (click)="setMatch(game)">
+                    <div class="game-card__icon">
+                      <i [class]="game.gameIcon"></i>
+                    </div>
+                    <div class="game-card__body">
+                      <h4>{{ game.gameName }}</h4>
+                      <p>{{ game.gameShortcode }}</p>
+                    </div>
+                    <div class="game-card__footer">
+                      <span class="pill">{{ game.tag }}</span>
+                      <button
+                        class="link-btn"
+                        [routerLink]="game.gameRoute"
+                        (click)="setMatch(game); $event.stopPropagation()"
+                      >
+                        Open
+                        <i class="bi bi-arrow-right"></i>
+                      </button>
+                    </div>
+                  </article>
+                }
               </div>
-
-              <div class="game-card__body">
-                <h3>{{ game.gameName }}</h3>
-                <p>{{ game.gameShortcode }}</p>
-              </div>
-
-              <div class="game-card__actions">
-                <button
-                  class="link-btn"
-                  [routerLink]="game.gameRoute"
-                  (click)="setMatch(game); $event.stopPropagation()"
-                >
-                  Open
-                  <i class="bi bi-arrow-up-right"></i>
-                </button>
-              </div>
-            </article>
+            </div>
           }
         </div>
       </section>
@@ -63,22 +59,20 @@
       <section class="panel">
         <div class="panel__header">
           <div>
-            <h2>Recently opened</h2>
-            <p class="panel__hint">Your last sessions across products.</p>
+            <h2>Recently Opened</h2>
+            <p class="panel__hint">Your last sessions across products</p>
           </div>
           <span class="chip">{{ recentApps.length }} items</span>
         </div>
-
         <ul class="activity-list">
           @for (app of recentApps; track app.gameId) {
-            <li class="activity-item">
+            <li class="activity-item" (click)="navigateTo(app)">
               <div class="activity-item__indicator"></div>
-
               <div class="activity-item__content">
                 <div class="activity-item__title">
                   <h3>{{ app.gameName }}</h3>
                   @if (app.forecastCreated) {
-                    <span class="pill pill--success">Forecast ready</span>
+                    <span class="pill pill--success">Ready</span>
                   }
                 </div>
                 <p>{{ app.timestamp | date: "medium" }}</p>
@@ -95,7 +89,7 @@
           <span></span>
         </div>
         <h3>No recent activity</h3>
-        <p>Launch a product to have it show up in your history.</p>
+        <p>Launch a product to have it show up in your history</p>
       </div>
     }
   </div>

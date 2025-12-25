@@ -1,57 +1,208 @@
-export const PRODUCTS_NAME = [
+// Sports - Daily Odds Forecasts
+const SPORTS_ODDS_PRODUCTS = [
   {
     gameId: 1,
-    gameName: "Sports Lord",
-    gameRoute: "/sports-lord/dashboard",
-    gameIcon: "fas fa-money-bill",
+    gameName: "King Solomon",
+    gameRoute: "/king-solomon/dashboard",
+    gameIcon: "bi bi-trophy",
     gameDescription: "*713*22#",
     gameShortcode: "*713*22#",
-    gameRouteJoined: "sports-lord",
+    gameRouteJoined: "king-solomon",
     tag: "Active",
     gameImage: "../assets/images/games-icons/app.png",
   },
   {
     gameId: 2,
-    gameName: "Love Relationships",
-    gameRoute: "/love-relationships-lord/dashboard",
-    gameIcon: "fas fa-heart",
+    gameName: "Odds Oracle",
+    gameRoute: "/odds-oracle/dashboard",
+    gameIcon: "bi bi-graph-up-arrow",
     gameDescription: "*713*22#",
     gameShortcode: "*713*22#",
-    gameRouteJoined: "love-relationships-lord",
+    gameRouteJoined: "odds-oracle",
     tag: "Active",
-    gameImage: "../assets/images/games-icons/app.png",  
+    gameImage: "../assets/images/games-icons/app.png",
   },
   {
     gameId: 3,
-    gameName: "Jobs Alerts",
-    gameRoute: "/jobs-lord/dashboard",
-    gameIcon: "fas fa-briefcase",
+    gameName: "Sportaga",
+    gameRoute: "/sportaga/dashboard",
+    gameIcon: "bi bi-circle-fill",
     gameDescription: "*713*22#",
     gameShortcode: "*713*22#",
-    gameRouteJoined: "jobs-lord",
+    gameRouteJoined: "sportaga",
     tag: "Active",
     gameImage: "../assets/images/games-icons/app.png",
   },
   {
     gameId: 4,
-    gameName: "Finance",
-    gameRoute: "/finance-lord/dashboard",
-    gameIcon: "fas fa-money-bill",
+    gameName: "Husky Odds",
+    gameRoute: "/husky-odds/dashboard",
+    gameIcon: "bi bi-dice-6",
     gameDescription: "*713*22#",
     gameShortcode: "*713*22#",
-    gameRouteJoined: "finance-lord",
+    gameRouteJoined: "husky-odds",
     tag: "Active",
     gameImage: "../assets/images/games-icons/app.png",
   },
   {
     gameId: 5,
-    gameName: "Motivation",
-    gameRoute: "/motivation-lord/dashboard",
-    gameIcon: "fas fa-lightbulb",
+    gameName: "Bet Lord",
+    gameRoute: "/bet-lord/dashboard",
+    gameIcon: "bi bi-cash-coin",
     gameDescription: "*713*22#",
     gameShortcode: "*713*22#",
-    gameRouteJoined: "motivation-lord",
+    gameRouteJoined: "bet-lord",
     tag: "Active",
     gameImage: "../assets/images/games-icons/app.png",
-  }
+  },
 ];
+
+// Sports News & Match Insights
+const SPORTS_NEWS_PRODUCTS = [
+  {
+    gameId: 6,
+    gameName: "Flashscore",
+    gameRoute: "/flashscore/dashboard",
+    gameIcon: "bi bi-newspaper",
+    gameDescription: "*713*22#",
+    gameShortcode: "*713*22#",
+    gameRouteJoined: "flashscore",
+    tag: "Active",
+    gameImage: "../assets/images/games-icons/app.png",
+  },
+  {
+    gameId: 7,
+    gameName: "Topmatches",
+    gameRoute: "/topmatches/dashboard",
+    gameIcon: "bi bi-star-fill",
+    gameDescription: "*713*22#",
+    gameShortcode: "*713*22#",
+    gameRouteJoined: "topmatches",
+    tag: "Active",
+    gameImage: "../assets/images/games-icons/app.png",
+  },
+];
+
+// Finance & Business
+const FINANCE_PRODUCTS = [
+  {
+    gameId: 8,
+    gameName: "Financepro",
+    gameRoute: "/financepro/dashboard",
+    gameIcon: "bi bi-pie-chart",
+    gameDescription: "*713*22#",
+    gameShortcode: "*713*22#",
+    gameRouteJoined: "financepro",
+    tag: "Active",
+    gameImage: "../assets/images/games-icons/app.png",
+  },
+  {
+    gameId: 9,
+    gameName: "Cashflow",
+    gameRoute: "/cashflow/dashboard",
+    gameIcon: "bi bi-wallet2",
+    gameDescription: "*713*22#",
+    gameShortcode: "*713*22#",
+    gameRouteJoined: "cashflow",
+    tag: "Active",
+    gameImage: "../assets/images/games-icons/app.png",
+  },
+  {
+    gameId: 10,
+    gameName: "Businesskey",
+    gameRoute: "/businesskey/dashboard",
+    gameIcon: "bi bi-key",
+    gameDescription: "*713*22#",
+    gameShortcode: "*713*22#",
+    gameRouteJoined: "businesskey",
+    tag: "Active",
+    gameImage: "../assets/images/games-icons/app.png",
+  },
+];
+
+// Love & Relationship
+const LOVE_RELATIONSHIP_PRODUCTS = [
+  {
+    gameId: 11,
+    gameName: "Lovetips",
+    gameRoute: "/lovetips/dashboard",
+    gameIcon: "bi bi-heart-fill",
+    gameDescription: "*713*22#",
+    gameShortcode: "*713*22#",
+    gameRouteJoined: "lovetips",
+    tag: "Active",
+    gameImage: "../assets/images/games-icons/app.png",
+  },
+  {
+    gameId: 12,
+    gameName: "Heartwise",
+    gameRoute: "/heartwise/dashboard",
+    gameIcon: "bi bi-heart",
+    gameDescription: "*713*22#",
+    gameShortcode: "*713*22#",
+    gameRouteJoined: "heartwise",
+    tag: "Active",
+    gameImage: "../assets/images/games-icons/app.png",
+  },
+];
+
+// Job Alerts
+const JOB_ALERTS_PRODUCTS = [
+  {
+    gameId: 13,
+    gameName: "Jobconnect",
+    gameRoute: "/jobconnect/dashboard",
+    gameIcon: "bi bi-diagram-3",
+    gameDescription: "*713*22#",
+    gameShortcode: "*713*22#",
+    gameRouteJoined: "jobconnect",
+    tag: "Active",
+    gameImage: "../assets/images/games-icons/app.png",
+  },
+  {
+    gameId: 14,
+    gameName: "Jobsalert",
+    gameRoute: "/jobsalert/dashboard",
+    gameIcon: "bi bi-bell",
+    gameDescription: "*713*22#",
+    gameShortcode: "*713*22#",
+    gameRouteJoined: "jobsalert",
+    tag: "Active",
+    gameImage: "../assets/images/games-icons/app.png",
+  },
+];
+
+// Scholarships
+const SCHOLARSHIP_PRODUCTS = [
+  {
+    gameId: 15,
+    gameName: "Scholarship",
+    gameRoute: "/scholarship/dashboard",
+    gameIcon: "bi bi-mortarboard",
+    gameDescription: "*713*22#",
+    gameShortcode: "*713*22#",
+    gameRouteJoined: "scholarship",
+    tag: "Active",
+    gameImage: "../assets/images/games-icons/app.png",
+  },
+];
+
+// Combined product list
+export const PRODUCTS_NAME = [
+  ...SPORTS_ODDS_PRODUCTS,
+  ...SPORTS_NEWS_PRODUCTS,
+  ...FINANCE_PRODUCTS,
+  ...LOVE_RELATIONSHIP_PRODUCTS,
+  ...JOB_ALERTS_PRODUCTS,
+  ...SCHOLARSHIP_PRODUCTS,
+];
+
+// Grouped products by category
+export const PRODUCTS_BY_CATEGORY = [
+  { title: "Sports - Daily Odds Forecasts", products: SPORTS_ODDS_PRODUCTS },
+  { title: "Sports News & Match Insights", products: SPORTS_NEWS_PRODUCTS },
+  { title: "Finance & Business", products: FINANCE_PRODUCTS },
+  { title: "Love & Relationship", products: LOVE_RELATIONSHIP_PRODUCTS },
+  { title: "Job Alerts", products: JOB_ALERTS_PRODUCTS },
+  { title: "Scholarships", products: SCHOLARSHIP_PRODUCTS },
+].filter(category => category.products.length > 0);

@@ -1,7 +1,7 @@
 import { CommonModule } from "@angular/common";
 import { Component, OnInit } from "@angular/core";
 import { Router, RouterLink } from "@angular/router";
-import { PRODUCTS_NAME } from "../core/constants/product-list";
+import { PRODUCTS_NAME, PRODUCTS_BY_CATEGORY } from "../core/constants/product-list";
 import { RecentAppTracker, TrackedApp } from "../core/utils/recent-app-tracker";
 
 interface Game {
@@ -17,6 +17,12 @@ interface Game {
   tag: string;
 }
 
+interface ProductCategory {
+  title: string;
+  products: Game[];
+}
+
+
 @Component({
   selector: "app-game-board",
   standalone: true,
@@ -24,16 +30,20 @@ interface Game {
   templateUrl: "./features.component.html",
   styleUrl: "./features.component.scss",
 })
+
+
 export class GamesBoardComponent implements OnInit {
   isLoading = false;
   showOldGames = true;
   oldGames = PRODUCTS_NAME;
   recentApps: TrackedApp[] = [];
+  productCategories: ProductCategory[] = [];
 
-  constructor(private router: Router) {}
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
     this.isLoading = true;
+    this.productCategories = PRODUCTS_BY_CATEGORY;
     setTimeout(() => {
       this.isLoading = false;
       this.recentApps = RecentAppTracker.getRecentApps();
@@ -54,7 +64,7 @@ export class GamesBoardComponent implements OnInit {
     });
 
     // localStorage.setItem("match",   `${game.gameName+ "-" +game.gameDescription}`);
-     localStorage.setItem("match",   `${game.gameName+ " - " + game.gameShortcode}`);
+    localStorage.setItem("match", `${game.gameName + " - " + game.gameShortcode}`);
     this.router.navigate([game.gameRoute], {
       queryParams: { page: "welcome" },
     });
