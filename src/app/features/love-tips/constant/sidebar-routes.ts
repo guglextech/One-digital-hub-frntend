@@ -1,33 +1,33 @@
-export const LOVE_RELATIONSHIPS_MENU = [
+export const LOVE_TIPS_MENU = [
   {
     title: "Dashboard",
-    link: "/love-relationships-lord/dashboard",
+    link: "/love-tips/dashboard",
     icon: "/assets/icons/feather/home.svg",
   },
   {
     title: "Forecast",
-    link: "/love-relationships-lord/forecast",
+    link: "/love-tips/forecast",
     icon: "/assets/icons/feather/file-text.svg",
   },
   {
     title: "Payments",
-    link: "/love-relationships-lord/payments",
+    link: "/love-tips/payments",
     icon: "/assets/icons/feather/credit-card.svg",
   },
   {
     title: "Subscribers",
-    link: "/love-relationships-lord/subscribers/active",
+    link: "/love-tips/subscribers/active",
     icon: "/assets/icons/feather/users.svg",
     collapse: true,
     collapseId: "ui-subscriber",
     subMenu: [
-      { title: "Active", link: "/love-relationships-lord/subscribers/active" },
-      { title: "Inactive", link: "/love-relationships-lord/subscribers/inactive" },
+      { title: "Active", link: "/love-tips/subscribers/active" },
+      { title: "Inactive", link: "/love-tips/subscribers/inactive" },
     ],
   },
   {
     title: "Price Config",
-    link: "/love-relationships-lord/price-setup",
+    link: "/love-tips/price-setup",
     icon: "/assets/icons/feather/dollar-sign.svg",
   }
 ];

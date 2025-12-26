@@ -125,7 +125,7 @@ const LOVE_RELATIONSHIP_PRODUCTS = [
   {
     gameId: 11,
     gameName: "Lovetips",
-    gameRoute: "/lovetips/dashboard",
+    gameRoute: "/love-tips/dashboard",
     gameIcon: "bi bi-heart-fill",
     gameDescription: "Daily love, dating, relationship tips",
     gameShortcode: "*713*22#",

@@ -1,10 +1,10 @@
 export enum SERVICE_TYPES {
   BusinessKey = 'BUSINESS_KEY',
   Heartwise = 'HEARTWISE',
-  LoveRelationships = 'LOVE_RELATIONSHIPS',
+  LoveRelationships = 'LOVE_TIPS',
   JobAlerts = 'JOB_ALERTS',
   JobConnect = 'JOB_CONNECT',
-  Finance = 'FINANCE',
+  Finance = 'FINANCE_PRO',
   Motivation = 'MOTIVATION',
   Scholarships = 'SCHOLARSHIPS',
   BetLord = 'BET_LORD',
@@ -13,14 +13,15 @@ export enum SERVICE_TYPES {
   HuskyOdds = 'HUSKY_ODDS',
   Sportaga = 'SPORTAGA',
   OddsOracle = 'ODDS_ORACLE',
-  KingSolomon = 'KING_SOLOMON'
-  
+  KingSolomon = 'KING_SOLOMON',
+  SuccessTips = 'SUCCESS_TIPS',
+  FinancePro = 'FINANCE_PRO',
+  Cashflow = 'CASHFLOW',
 }
 
 export const serviceTypeOptions = [
   { key: 'business_key', value: SERVICE_TYPES.BusinessKey },
   { key: 'heartwise', value: SERVICE_TYPES.Heartwise },
-  // { key: 'sports', value: SERVICE_TYPES.Sports },
   { key: 'love_relationships', value: SERVICE_TYPES.LoveRelationships },
   { key: 'job_alerts', value: SERVICE_TYPES.JobAlerts },
   { key: 'job_connect', value: SERVICE_TYPES.JobConnect },
@@ -34,4 +35,6 @@ export const serviceTypeOptions = [
   { key: 'sportaga', value: SERVICE_TYPES.Sportaga },
   { key: 'odds_oracle', value: SERVICE_TYPES.OddsOracle },
   { key: 'king_solomon', value: SERVICE_TYPES.KingSolomon },
+  { key: 'success_tips', value: SERVICE_TYPES.SuccessTips },
+  { key: 'cashflow', value: SERVICE_TYPES.Cashflow },
 ];

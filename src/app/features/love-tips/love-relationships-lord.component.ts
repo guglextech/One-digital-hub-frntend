@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { DashboardLayoutComponent } from 'src/app/shared/components/dashboard-layout/dashboard-layout.component';
-import { LOVE_RELATIONSHIPS_MENU } from './constant/sidebar-routes';
+import {  LOVE_TIPS_MENU } from './constant/sidebar-routes';
 
 @Component({
   selector: 'app-love-relationships-lord',
@@ -10,6 +10,6 @@ import { LOVE_RELATIONSHIPS_MENU } from './constant/sidebar-routes';
   styleUrl: './love-relationships-lord.component.scss'
 })
 export class LoveRelationshipsLordComponent {
-  LOVE_RELATIONSHIPS_MENU = LOVE_RELATIONSHIPS_MENU;
+  LOVE_TIPS_MENU = LOVE_TIPS_MENU;
 }
 

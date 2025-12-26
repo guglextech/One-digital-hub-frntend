@@ -64,8 +64,8 @@ export const appRoutes: Routes = [
     loadChildren: () => import("./features/scholarship/scholarship.routing").then((m) => m.ScholarshipRoutes),
   },
   {
-    path: "lovetips",
-    loadChildren: () => import("./features/love-relationships-lord/love-relationships-lord.routing").then((m) => m.LoveRelationshipsLordRoutes),
+    path: "love-tips",
+    loadChildren: () => import("./features/love-tips/love-relationships-lord.routing").then((m) => m.LoveRelationshipsLordRoutes),
   },
   {
     path: "jobconnect",
