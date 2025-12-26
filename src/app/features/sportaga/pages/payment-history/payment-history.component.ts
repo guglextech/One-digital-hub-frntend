@@ -28,7 +28,7 @@ export class PaymentHistoryComponent extends PaginatedTableComponent {
 
     this.jobsLordSvc
       .paymentHistory(
-        SERVICE_TYPES.Jobs,
+        SERVICE_TYPES.Sportaga,
         "",
         this.currentPage,
         this.pageSize

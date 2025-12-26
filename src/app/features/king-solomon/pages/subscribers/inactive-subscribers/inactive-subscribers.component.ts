@@ -40,7 +40,7 @@ export class InactiveSubscribersComponent extends PaginatedTableComponent {
 
     this.bigMoneySvc
       .subscribers(
-        SERVICE_TYPES.Sports,
+        SERVICE_TYPES.KingSolomon,
         SEARCH_TYPES.OPTEDOUT,
         this.currentPage,
         this.pageSize

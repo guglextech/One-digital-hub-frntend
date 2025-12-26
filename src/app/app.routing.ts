@@ -69,7 +69,7 @@ export const appRoutes: Routes = [
   },
   {
     path: "jobconnect",
-    loadChildren: () => import("./features/jobs-alerts/jobs-lord.routing").then((m) => m.JobsLordRoutes),
+    loadChildren: () => import("./features/jobsconnect/jobs-lord.routing").then((m) => m.JobsLordRoutes),
   },
   {
     path: "financepro",

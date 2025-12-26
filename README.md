@@ -3,7 +3,7 @@
     "password": "Test@123456"
 } -->
 
- | Time     | Category         | Product / Service  |
+| Time     | Category         | Product / Service  |
 | -------- | ---------------- | ------------------ |
 | 6:00 AM  | Job Alerts       | JOBCONNECT – Finds |
 | 6:30 AM  | Job Alerts       | JOBSALERT          |

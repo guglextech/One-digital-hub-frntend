@@ -40,7 +40,7 @@ export class InactiveSubscribersComponent extends PaginatedTableComponent {
 
     this.jobsLordSvc
       .subscribers(
-        SERVICE_TYPES.Jobs,
+        SERVICE_TYPES.HuskyOdds,
         SEARCH_TYPES.OPTEDOUT,
         this.currentPage,
         this.pageSize

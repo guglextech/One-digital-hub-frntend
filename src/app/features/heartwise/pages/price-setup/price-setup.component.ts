@@ -41,12 +41,12 @@ export class PriceSetupComponent extends BasePrizeComponent implements OnInit {
   }
 
   loadPriceSetup() {
-    this.jobsLordSvc.getPriceInfo(SERVICE_TYPES.Jobs).subscribe({
+    this.jobsLordSvc.getPriceInfo(SERVICE_TYPES.Heartwise).subscribe({
       next: ({ result }) => {
         this.prizes = [
           {
             ...result,
-            serviceType: SERVICE_TYPES?.Jobs,
+            serviceType: SERVICE_TYPES?.Heartwise,
             previousPrice: +result?.previousPrice,
             currentPrice: +result?.currentPrice,
             newPrice: +result?.currentPrice,

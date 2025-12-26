@@ -49,7 +49,7 @@ export class ForecastComponent extends PaginatedTableComponent {
     this.currentPage = 1;
     this.oddsOracleSvc
       .forecastHistory(
-        SERVICE_TYPES.Sports,
+        SERVICE_TYPES.OddsOracle,
         query,
         this.currentPage,
         this.pageSize
@@ -70,7 +70,7 @@ export class ForecastComponent extends PaginatedTableComponent {
       centered: true,
     });
 
-    modalRef.componentInstance.serviceType = SERVICE_TYPES.Sports;
+    modalRef.componentInstance.serviceType = SERVICE_TYPES.OddsOracle;
     modalRef.componentInstance.buttonAction.subscribe((data: any) => {
       console.log("DATA here:", data);
       this.createForecastMessage(data);
@@ -85,7 +85,7 @@ export class ForecastComponent extends PaginatedTableComponent {
 
     this.oddsOracleSvc
       .forecastHistory(
-        SERVICE_TYPES.Sports,
+        SERVICE_TYPES.OddsOracle,
         "",
         this.currentPage,
         this.pageSize
@@ -143,7 +143,7 @@ export class ForecastComponent extends PaginatedTableComponent {
       centered: true,
     });
 
-    modalRef.componentInstance.serviceType = SERVICE_TYPES.Sports;
+    modalRef.componentInstance.serviceType = SERVICE_TYPES.OddsOracle;
     modalRef.componentInstance.buttonAction.subscribe((data: any) => {
       console.log("DATA here:", data);
       this.sendBroadcastSMS(data);
@@ -151,7 +151,7 @@ export class ForecastComponent extends PaginatedTableComponent {
   }
 
   sendBroadcastSMS(data: any) {
-    this.oddsOracleSvc.sendSmsMessage(SERVICE_TYPES.Sports, data.message ,data.status)
+    this.oddsOracleSvc.sendSmsMessage(SERVICE_TYPES.OddsOracle, data.message ,data.status)
       .subscribe({
         next: (response: any) => {
           console.log("SMS sent successfully:", response);

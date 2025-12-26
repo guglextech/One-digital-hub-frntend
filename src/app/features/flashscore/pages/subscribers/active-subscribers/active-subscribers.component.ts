@@ -36,7 +36,7 @@ export class ActiveSubscribersComponent extends PaginatedTableComponent {
       this.currentPage = 1;
       this.jobsLordSvc
         .forecastHistory(
-          SERVICE_TYPES.Jobs,
+          SERVICE_TYPES.Flashscore,
           query,
           this.currentPage,
           this.pageSize
@@ -53,7 +53,7 @@ export class ActiveSubscribersComponent extends PaginatedTableComponent {
        this.error = null;
    
        this.jobsLordSvc.subscribers(
-           SERVICE_TYPES.Jobs,
+           SERVICE_TYPES.Flashscore,
            SEARCH_TYPES.OPTEDIN,
            this.currentPage,
             this.pageSize,
@@ -112,7 +112,7 @@ export class ActiveSubscribersComponent extends PaginatedTableComponent {
          const phone = event.data["Mobile"];
          const recurringId = event.data["Recurring Invoice"];
 
-        this.jobsLordSvc.cancelRecurringInvoice(phone, recurringId, SERVICE_TYPES.Jobs).subscribe({
+        this.jobsLordSvc.cancelRecurringInvoice(phone, recurringId, SERVICE_TYPES.Flashscore).subscribe({
           next: (response) => {
             console.log("Subscription cancelled successfully:", response);
             this.toastrSvc.success("Subscription cancelled successfully!");

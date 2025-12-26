@@ -49,7 +49,7 @@ export class ForecastComponent extends PaginatedTableComponent {
     this.currentPage = 1;
     this.jobsalertSvc
       .forecastHistory(
-        SERVICE_TYPES.Jobs,
+        SERVICE_TYPES.JobAlerts,
         query,
         this.currentPage,
         this.pageSize
@@ -70,7 +70,7 @@ export class ForecastComponent extends PaginatedTableComponent {
       centered: true,
     });
 
-    modalRef.componentInstance.serviceType = SERVICE_TYPES.Jobs;
+    modalRef.componentInstance.serviceType = SERVICE_TYPES.JobAlerts;
     modalRef.componentInstance.buttonAction.subscribe((data: any) => {
       console.log("DATA here:", data);
       this.createForecastMessage(data);
@@ -85,7 +85,7 @@ export class ForecastComponent extends PaginatedTableComponent {
 
     this.jobsalertSvc
       .forecastHistory(
-        SERVICE_TYPES.Jobs,
+        SERVICE_TYPES.JobAlerts,
         "",
         this.currentPage,
         this.pageSize
@@ -143,7 +143,7 @@ export class ForecastComponent extends PaginatedTableComponent {
       centered: true,
     });
 
-    modalRef.componentInstance.serviceType = SERVICE_TYPES.Jobs;
+    modalRef.componentInstance.serviceType = SERVICE_TYPES.JobAlerts;
     modalRef.componentInstance.buttonAction.subscribe((data: any) => {
       console.log("DATA here:", data);
       this.sendBroadcastSMS(data);
@@ -151,7 +151,7 @@ export class ForecastComponent extends PaginatedTableComponent {
   }
 
   sendBroadcastSMS(data: any) {
-    this.jobsalertSvc.sendSmsMessage(SERVICE_TYPES.Jobs, data.message ,data.status)
+    this.jobsalertSvc.sendSmsMessage(SERVICE_TYPES.JobAlerts, data.message ,data.status)
       .subscribe({
         next: (response: any) => {
           console.log("SMS sent successfully:", response);
